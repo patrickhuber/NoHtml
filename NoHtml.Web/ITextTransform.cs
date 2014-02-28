@@ -5,9 +5,8 @@ using System.Text;
 
 namespace NoHtml.Web
 {
-    public interface IHttpContext
+    public interface ITextTransform
     {
-        IHttpRequest Request { get; set; }
-        IHttpResponse Response { get; set; }
+
     }
 }

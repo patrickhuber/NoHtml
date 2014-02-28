@@ -10,7 +10,13 @@ namespace NoHtml.Web
 {
     public class MarkdownHandler : IHttpHandler
     {
-        public MarkdownHandler(IFileSystem)
+        private IFileSystem fileSystem;
+
+        public MarkdownHandler(IFileSystem fileSystem)
+        {
+            this.fileSystem = fileSystem;
+        }
+        
         public bool IsReusable
         {
             get { return true; }
@@ -21,6 +27,14 @@ namespace NoHtml.Web
         }
 
         public void ProcessRequest(IHttpContext context)
-        { }
+        {
+            var fileStream = fileSystem.OpenRead(context.Request.FilePath);
+            using (var streamReader = new StreamReader(fileStream))
+            {
+                MarkdownSharp.Markdown md = new Markdown();
+                var fileText = streamReader.ReadToEnd();
+                var responseText = md.Transform(fileText);
+            }        
+        }
     }
 }

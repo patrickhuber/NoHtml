@@ -48,6 +48,8 @@
     <Compile Include="IFileSystem.cs" />
     <Compile Include="IHttpContext.cs" />
     <Compile Include="IHttpRequest.cs" />
+    <Compile Include="IHttpResponse.cs" />
+    <Compile Include="ITextTransform.cs" />
     <Compile Include="MarkdownHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
 namespace NoHtml.Web
 {
-    public interface IHttpContext
+    public interface IHttpResponse
     {
-        IHttpRequest Request { get; set; }
-        IHttpResponse Response { get; set; }
+        Stream OutputStream { get; }
     }
 }
