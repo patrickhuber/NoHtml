@@ -63,14 +63,9 @@ namespace NoHtml.Web.Tests.Integration
         [TestMethod]
         public void MarkdownHttpHandler_Renders_H1()
         {
-            var mockHttpRequest = new Mock<IHttpRequest>();
-            mockHttpRequest
-                .SetupGet(x => x.FilePath)
-                .Returns(string.Empty);
-            var mockHttpContext = new Mock<IHttpContext>();
-            mockHttpContext
-                .SetupGet(x => x.Request)
-                .Returns(()=>mockHttpRequest.Object);
+            var mockFileSystem = new Mock<IFileSystem>();
+            MarkdownHandler markdownHandler = new MarkdownHandler(mockFileSystem.Object);
+            markdownHandler.ProcessRequest()
         }
     }
 }

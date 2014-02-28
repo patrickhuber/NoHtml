@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IFileSystem.cs" />
     <Compile Include="IHttpContext.cs" />
     <Compile Include="IHttpRequest.cs" />
     <Compile Include="MarkdownHandler.cs" />
