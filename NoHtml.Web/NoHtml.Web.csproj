@@ -51,6 +51,7 @@
     <Compile Include="IHttpResponse.cs" />
     <Compile Include="ITextTransform.cs" />
     <Compile Include="MarkdownHandler.cs" />
+    <Compile Include="MarkdownTextTransform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

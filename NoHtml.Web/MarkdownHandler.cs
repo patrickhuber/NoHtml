@@ -11,10 +11,12 @@ namespace NoHtml.Web
     public class MarkdownHandler : IHttpHandler
     {
         private IFileSystem fileSystem;
+        private ITextTransform textTransform;
 
-        public MarkdownHandler(IFileSystem fileSystem)
+        public MarkdownHandler(IFileSystem fileSystem, ITextTransform textTransform)
         {
             this.fileSystem = fileSystem;
+            this.textTransform = textTransform;
         }
         
         public bool IsReusable
@@ -31,9 +33,11 @@ namespace NoHtml.Web
             var fileStream = fileSystem.OpenRead(context.Request.FilePath);
             using (var streamReader = new StreamReader(fileStream))
             {
-                MarkdownSharp.Markdown md = new Markdown();
                 var fileText = streamReader.ReadToEnd();
-                var responseText = md.Transform(fileText);
+                var responseText = textTransform.Transform(fileText);
+                var streamWriter = new StreamWriter(context.Response.OutputStream);
+                streamWriter.Write(responseText);
+                streamWriter.Flush();
             }        
         }
     }

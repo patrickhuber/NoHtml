@@ -6,6 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.IO;
 using NoHtml.Web;
+using MarkdownSharp;
 
 namespace NoHtml.Web.Tests.Integration
 {
@@ -94,14 +95,14 @@ namespace NoHtml.Web.Tests.Integration
                     return new MemoryStream(Encoding.ASCII.GetBytes(markdown));
                 });
             
-            MarkdownHandler markdownHandler = new MarkdownHandler(mockFileSystem.Object);
+            MarkdownHandler markdownHandler = new MarkdownHandler(mockFileSystem.Object, new MarkdownTextTransform(new Markdown()));
             markdownHandler.ProcessRequest(mockHttpContext.Object);
-
             responseStream.Seek(0, SeekOrigin.Begin);
+
             using(var streamReader = new StreamReader(responseStream))
             {
                 var textResponse = streamReader.ReadToEnd();
-                Assert.AreEqual("<h1>This is an H1</h1>", textResponse);
+                Assert.AreEqual("<h1>This is an H1</h1>\n", textResponse);
             }
         }
     }

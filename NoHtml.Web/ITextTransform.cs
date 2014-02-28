@@ -7,6 +7,6 @@ namespace NoHtml.Web
 {
     public interface ITextTransform
     {
-
+        string Transform(string input);
     }
 }
