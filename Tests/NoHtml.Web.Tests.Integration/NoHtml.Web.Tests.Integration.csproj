@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="MarkdownHttpHandlerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextTransformTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\NoHtml.Web\NoHtml.Web.csproj">
