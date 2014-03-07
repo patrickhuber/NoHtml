@@ -13,6 +13,12 @@ namespace NoHtml.Web
         private IFileSystem fileSystem;
         private ITextTransform textTransform;
 
+        public MarkdownHandler()
+            : this(
+                DependencyResolver.Instance.GetService<IFileSystem>(), 
+                DependencyResolver.Instance.GetService<ITextTransform>("markdown"))
+        { }
+
         public MarkdownHandler(IFileSystem fileSystem, ITextTransform textTransform)
         {
             this.fileSystem = fileSystem;
@@ -25,7 +31,8 @@ namespace NoHtml.Web
         }
 
         public void ProcessRequest(HttpContext context)
-        {            
+        {
+            ProcessRequest(new HttpContextAdapter(context));
         }
 
         public void ProcessRequest(IHttpContext context)

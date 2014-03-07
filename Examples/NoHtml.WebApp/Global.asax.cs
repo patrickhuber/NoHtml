@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Routing;
 using System.Web.Security;
 using NoHtml.WebApp;
+using NoHtml.Web;
 
 namespace NoHtml.WebApp
 {
@@ -15,8 +16,9 @@ namespace NoHtml.WebApp
             // Code that runs on application startup
             AuthConfig.RegisterOpenAuth();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            DependencyConfig.RegisterDependencies();            
         }
-
+        
         void Application_End(object sender, EventArgs e)
         {
             //  Code that runs on application shutdown

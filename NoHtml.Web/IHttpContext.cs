@@ -7,7 +7,7 @@ namespace NoHtml.Web
 {
     public interface IHttpContext
     {
-        IHttpRequest Request { get; set; }
-        IHttpResponse Response { get; set; }
+        IHttpRequest Request { get; }
+        IHttpResponse Response { get;}
     }
 }

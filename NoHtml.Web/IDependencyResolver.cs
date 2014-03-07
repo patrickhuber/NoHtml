@@ -5,8 +5,9 @@ using System.Text;
 
 namespace NoHtml.Web
 {
-    public interface IHttpRequest
+    public interface IDependencyResolver
     {
-        string FilePath { get; }
+        T GetService<T>();
+        T GetService<T>(string name);
     }
 }
