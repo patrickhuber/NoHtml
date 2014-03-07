@@ -80,5 +80,18 @@ namespace NoHtml.Web.Tests.Unit
             var actual = dependencyResolver.GetService<ICalculator>();
             Assert.AreSame(actual, expected);
         }
+
+        [TestMethod]
+        public void Test_CompositionDependencyResolver_GetService_With_Name_Returns_Registered_Instance()
+        {
+            var expected = new Calculator();
+            var notExpected = new Calculator();
+            dependencyResolver.Register<ICalculator>(expected, "calculator");
+            dependencyResolver.Register<ICalculator>(notExpected);
+            var actual = dependencyResolver.GetService<ICalculator>("calculator");
+
+            Assert.AreSame(actual, expected);
+            Assert.AreNotSame(actual, notExpected);
+        }
     }
 }
