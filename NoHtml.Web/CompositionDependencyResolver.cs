@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,16 @@ namespace NoHtml.Web
         public T GetService<T>(string name)
         {
             return this.container.GetExport<T>(name).Value;
+        }
+
+        public void Register<T>(T value)
+        {
+            this.container.ComposeExportedValue<T>(value);
+        }
+
+        public void Register<T>(T value, string name)
+        {
+            this.container.ComposeExportedValue<T>(name, value);
         }
     }
 }

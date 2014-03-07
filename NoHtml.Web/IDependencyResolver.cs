@@ -9,5 +9,7 @@ namespace NoHtml.Web
     {
         T GetService<T>();
         T GetService<T>(string name);
+        void Register<T>(T value);
+        void Register<T>(T value, string name);
     }
 }
