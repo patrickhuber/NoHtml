@@ -13,11 +13,12 @@ namespace NoHtml.WebApp
         {
             var container = new CompositionContainer();            
             var resolver = new CompositionDependencyResolver(container);
+            DependencyResolver.SetResolver(resolver);
+
             resolver.Register<IHttpContextFactory>(new HttpContextFactory());
             resolver.Register<IFileSystem>(new FileSystem(), "fileSystem");
             resolver.Register<IFileSystem>(new WebFileSystem());
-            resolver.Register<ITextTransform>(new MarkdownTextTransform(new MarkdownSharp.Markdown()), "markdown");
-            DependencyResolver.SetResolver(resolver);
+            resolver.Register<ITextTransform>(new MarkdownTextTransform(new MarkdownSharp.Markdown()), "markdown");            
         }
     }
 }
