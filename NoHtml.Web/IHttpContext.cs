@@ -9,5 +9,6 @@ namespace NoHtml.Web
     {
         IHttpRequest Request { get; }
         IHttpResponse Response { get;}
+        IHttpServerUtility Server { get; }
     }
 }

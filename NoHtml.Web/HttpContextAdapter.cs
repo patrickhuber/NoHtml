@@ -30,5 +30,10 @@ namespace NoHtml.Web
                 return new HttpResponseAdapter(httpContext.Response);
             }
         }
+
+        public IHttpServerUtility Server
+        {
+            get { return new HttpServerUtilityAdapter(httpContext.Server);  }
+        }
     }
 }
