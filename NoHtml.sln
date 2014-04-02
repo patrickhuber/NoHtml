@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoHtml.Web", "NoHtml.Web\NoHtml.Web.csproj", "{902BC494-A886-4B43-91DA-27967E822414}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoHtml.Web.Tests.Integration", "Tests\NoHtml.Web.Tests.Integration\NoHtml.Web.Tests.Integration.csproj", "{03959314-E5F5-46F9-9592-CB3E5E69D976}"
@@ -10,7 +8,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{621E2ABC-D25F-4B47-B032-67893FB07DD4}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
