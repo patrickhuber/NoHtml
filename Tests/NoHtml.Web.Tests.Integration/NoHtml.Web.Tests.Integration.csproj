@@ -68,12 +68,6 @@
     <Compile Include="TextTransformTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\NoHtml.Web\NoHtml.Web.csproj">
-      <Project>{902bc494-a886-4b43-91da-27967e822414}</Project>
-      <Name>NoHtml.Web</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="FileSystem\Directories\File.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
