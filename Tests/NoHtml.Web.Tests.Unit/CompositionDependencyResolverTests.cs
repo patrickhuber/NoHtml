@@ -48,6 +48,25 @@ namespace NoHtml.Web.Tests.Unit
             }
         }
 
+        interface IAutomobile
+        {
+            void Start();
+            int GetWheelCount();
+        }
+
+        class Car : IAutomobile
+        {
+            public void Start()
+            {
+                Console.Write("Put put put. Vrooom!");
+            }
+
+            public int GetWheelCount()
+            {
+                return 4;
+            }
+        }
+
         private CompositionContainer compositionContainer;
         private IDependencyResolver dependencyResolver;
 
@@ -73,7 +92,7 @@ namespace NoHtml.Web.Tests.Unit
         }
 
         [TestMethod]
-        public void Test_CompositionDependencyResolver_GetService_Returns_Registered_Instance()
+        public void Test_CompositionDependencyResolver_GetServiceGeneric_Returns_Registered_Instance()
         {
             var expected = new Calculator();
             dependencyResolver.Register<ICalculator>(expected);
@@ -82,7 +101,7 @@ namespace NoHtml.Web.Tests.Unit
         }
 
         [TestMethod]
-        public void Test_CompositionDependencyResolver_GetService_With_Name_Returns_Registered_Instance()
+        public void Test_CompositionDependencyResolver_GetServiceGeneric_With_Name_Returns_Registered_Instance()
         {
             var expected = new Calculator();
             var notExpected = new Calculator();
@@ -92,6 +111,44 @@ namespace NoHtml.Web.Tests.Unit
 
             Assert.AreSame(actual, expected);
             Assert.AreNotSame(actual, notExpected);
+        }
+
+        [TestMethod]
+        public void Test_CompositionDependencyResolver_GetService_Returns_Registered_Instance()
+        {
+            var expected = new Calculator();
+            dependencyResolver.Register<ICalculator>(expected);
+            var actual = dependencyResolver.GetService(typeof (ICalculator));
+            Assert.AreSame(expected, actual);
+        }
+
+        [TestMethod]
+        public void Test_CompositionDependencyResolver_GetServices_Returns_All_Registered_Instances()
+        {
+            var defaultCalculator = new Calculator();
+            var namedCalculator = new Calculator();
+            var car = new Car();
+            dependencyResolver.Register<ICalculator>(defaultCalculator);
+            dependencyResolver.Register<ICalculator>(namedCalculator, "named");
+            dependencyResolver.Register<IAutomobile>(car);
+
+            // enumerate to save on computation power
+            var services = dependencyResolver
+                .GetServices(typeof (ICalculator))
+                .ToArray();
+
+            Assert.AreEqual(2, services.Length);
+
+            bool isNamedCalculator = false;
+            bool isDefaultCalculator = false;
+            foreach (var service in services)
+            {
+                if (service == namedCalculator)
+                    isNamedCalculator = true;
+                if(service == defaultCalculator)
+                    isDefaultCalculator = true;
+            }
+            Assert.IsTrue(isNamedCalculator && isDefaultCalculator);
         }
     }
 }
