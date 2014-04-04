@@ -62,13 +62,9 @@
   <ItemGroup>
     <Compile Include="CompositionDependencyResolverTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FileSystemTests.cs" />
     <Compile Include="WebFileSystemTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="OpenRead.dat">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +73,7 @@
       <Name>NoHtml.Web</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
