@@ -12,5 +12,15 @@ namespace NoHtml.Web
         {
             return File.OpenRead(path);
         }
+        
+        public bool DirectoryExists(string path)
+        {
+            return Directory.Exists(path);
+        }
+
+        public bool FileExists(string path)
+        {
+            return File.Exists(path);
+        }
     }
 }

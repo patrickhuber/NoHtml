@@ -25,8 +25,26 @@ namespace NoHtml.Web
 
         public System.IO.Stream OpenRead(string path)
         {
-            var serverPath = httpContextFactory.CreateContext().Server.MapPath(path);
+            var serverPath = GetServerPath(path);
             return internalFileSystem.OpenRead(serverPath);
+        }
+
+        public bool DirectoryExists(string path)
+        {
+            var serverPath = GetServerPath(path);
+            return internalFileSystem.DirectoryExists(serverPath);
+        }
+
+        public bool FileExists(string path)
+        {
+            var serverPath = GetServerPath(path);
+            return internalFileSystem.FileExists(serverPath);
+        }
+        
+        private string GetServerPath(string path)
+        {
+            var serverPath = httpContextFactory.CreateContext().Server.MapPath(path);
+            return serverPath;
         }
     }
 }

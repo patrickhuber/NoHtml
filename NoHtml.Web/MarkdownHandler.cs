@@ -10,8 +10,8 @@ namespace NoHtml.Web
 {
     public class MarkdownHandler : IHttpHandler
     {
-        private IFileSystem fileSystem;
-        private ITextTransform textTransform;
+        private readonly IFileSystem fileSystem;
+        private readonly ITextTransform textTransform;
 
         public MarkdownHandler()
             : this(

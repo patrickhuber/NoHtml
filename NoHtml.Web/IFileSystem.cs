@@ -9,5 +9,7 @@ namespace NoHtml.Web
     public interface IFileSystem
     {
         Stream OpenRead(string path);
+        bool DirectoryExists(string path);
+        bool FileExists(string path);
     }
 }
