@@ -18,6 +18,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoHtml.WebApp", "Examples\NoHtml.WebApp\NoHtml.WebApp.csproj", "{D3850903-C1A1-4A5D-8650-57023762FBDD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{C9801807-8B32-4C5F-82F5-0DCD931DBF05}"
+	ProjectSection(SolutionItems) = preProject
+		Libraries\AssemblyVersionInfo.cs = Libraries\AssemblyVersionInfo.cs
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoHtml.Web", "Libraries\NoHtml.Web\NoHtml.Web.csproj", "{902BC494-A886-4B43-91DA-27967E822414}"
 EndProject
