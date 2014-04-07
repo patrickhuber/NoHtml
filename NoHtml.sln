@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoHtml.Web", "Libraries\NoH
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoHtml.Web.Mvc", "Libraries\NoHtml.Web.Mvc\NoHtml.Web.Mvc.csproj", "{DB3100E6-108F-474E-9728-33E920DF7DDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoHtml.Web.MarkdownDeep", "Libraries\NoHtml.Web.MarkdownDeep\NoHtml.Web.MarkdownDeep.csproj", "{771297E8-CF0E-49AE-AF37-FA03ACED80F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,10 @@ Global
 		{DB3100E6-108F-474E-9728-33E920DF7DDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB3100E6-108F-474E-9728-33E920DF7DDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB3100E6-108F-474E-9728-33E920DF7DDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{771297E8-CF0E-49AE-AF37-FA03ACED80F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{771297E8-CF0E-49AE-AF37-FA03ACED80F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{771297E8-CF0E-49AE-AF37-FA03ACED80F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{771297E8-CF0E-49AE-AF37-FA03ACED80F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,5 +68,6 @@ Global
 		{D3850903-C1A1-4A5D-8650-57023762FBDD} = {DB4883DF-FA5D-4668-AB10-69DFBC339306}
 		{902BC494-A886-4B43-91DA-27967E822414} = {C9801807-8B32-4C5F-82F5-0DCD931DBF05}
 		{DB3100E6-108F-474E-9728-33E920DF7DDA} = {C9801807-8B32-4C5F-82F5-0DCD931DBF05}
+		{771297E8-CF0E-49AE-AF37-FA03ACED80F9} = {C9801807-8B32-4C5F-82F5-0DCD931DBF05}
 	EndGlobalSection
 EndGlobal
