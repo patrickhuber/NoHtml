@@ -5,7 +5,7 @@ using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 using System.Text;
 
-namespace NoHtml.Web
+namespace NoHtml
 {
     public class CompositionDependencyResolver : IDependencyResolver
     {

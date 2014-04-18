@@ -5,6 +5,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.IO;
+using NoHtml;
 
 namespace NoHtml.Web.Tests.Unit
 {
