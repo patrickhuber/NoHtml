@@ -48,6 +48,8 @@
     <Compile Include="CompositionDependencyResolver.cs" />
     <Compile Include="DependencyResolver.cs" />
     <Compile Include="Document.cs" />
+    <Compile Include="CachedDocumentModel.cs" />
+    <Compile Include="FileSystemDocumentEnumerable.cs" />
     <Compile Include="FileSystem.cs" />
     <Compile Include="IDependencyResolver.cs" />
     <Compile Include="IFileSystem.cs" />
