@@ -46,5 +46,41 @@ namespace NoHtml.Web
             var serverPath = httpContextFactory.CreateContext().Server.MapPath(path);
             return serverPath;
         }
+
+        public IEnumerable<string> EnumerateDirectories(string path)
+        {
+            var serverPath = GetServerPath(path);
+            return internalFileSystem.EnumerateDirectories(serverPath);
+        }
+
+        public IEnumerable<string> EnumerateDirectories(string path, string searchPattern)
+        {
+            var serverPath = GetServerPath(path);
+            return internalFileSystem.EnumerateDirectories(serverPath, searchPattern);
+        }
+
+        public IEnumerable<string> EnumerateDirectoriesRecursive(string path)
+        {
+            var serverPath = GetServerPath(path);
+            return internalFileSystem.EnumerateDirectoriesRecursive(serverPath);
+        }
+
+        public IEnumerable<string> EnumerateDirectoriesRecursive(string path, string searchPattern)
+        {
+            var serverPath = GetServerPath(path);
+            return internalFileSystem.EnumerateDirectoriesRecursive(serverPath, searchPattern);
+        }
+
+        public IEnumerable<string> EnumerateFiles(string path)
+        {
+            var serverPath = GetServerPath(path);
+            return internalFileSystem.EnumerateFiles(serverPath);
+        }
+
+        public IEnumerable<string> EnumerateFiles(string path, string searchPattern)
+        {
+            var serverPath = GetServerPath(path);
+            return internalFileSystem.EnumerateFiles(serverPath, searchPattern);
+        }
     }
 }

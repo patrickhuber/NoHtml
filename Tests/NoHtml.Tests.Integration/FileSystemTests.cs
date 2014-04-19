@@ -6,38 +6,56 @@ namespace NoHtml.Web.Tests.Integration
     [TestClass]
     public class FileSystemTests
     {
-        private const string OpenReadFile = "OpenRead.dat";
-        private const string OpenReadFilePath = "FileSystem\\" + OpenReadFile;
-        private const string FileSystemOpenReadReadsFileTarget = "FileSystem_OpenRead_Reads_File";
-        private const string FileSystemOpenReadReadsFileTestPath = FileSystemOpenReadReadsFileTarget + "\\" + OpenReadFile;
+        private static class FS
+        {
+            public const string Root = "FileSystem";
+            public static class OpenRead
+            {
+                public const string Content = "OpenRead";
+                public const string File = "OpenRead.dat";
+                public const string Path = Root + @"\" + File;
+                public const string Target = "FileSystem_OpenRead_Reads_File";
+                public const string TargetPath = Target + @"\" + File;
+            }
+
+            public static class FileExists
+            {
+                public const string File = "FileExists.dat";
+                public const string Path = Root + @"\" + File;
+                public const string Target = "FileSystem_FileExists_Finds_File";
+                public const string TargetPath = Target + @"\" + File;
+            }    
+            
+            public static class Directories
+            {
+                public const string Root = FS.Root + @"\Directories";
+                public const string File = "File.dat";
+                public const string FilePath = Root + @"\" + File;
+            }
+        }
 
         [TestMethod]
-        [DeploymentItem(OpenReadFilePath, FileSystemOpenReadReadsFileTarget)]
+        [DeploymentItem(FS.OpenRead.Path, FS.OpenRead.Target)]
         public void FileSystem_OpenRead_Reads_File()
         {
             IFileSystem fileSystem = new FileSystem();
-            using (var stream = fileSystem.OpenRead(FileSystemOpenReadReadsFileTestPath))
+            using (var stream = fileSystem.OpenRead(FS.OpenRead.TargetPath))
             {
                 using(var streamReader = new StreamReader(stream))
                 {
                     var actual = streamReader.ReadToEnd();
-                    const string expected = "OpenRead";
+                    const string expected = FS.OpenRead.Content;
                     Assert.AreEqual(expected, actual);
                 }
             }
         }
 
-        private const string ExistsFile = "FileExists.dat";
-        private const string ExistsFilePath = "FileSystem\\" + ExistsFile;
-        private const string FileSystemFileExistsFindsFileTarget = "FileSystem_FileExists_Finds_File";
-        private const string FileSystemFileExistsFildsFileTestPath = FileSystemFileExistsFindsFileTarget + "\\" + ExistsFile;
-
         [TestMethod]
-        [DeploymentItem(ExistsFilePath, FileSystemFileExistsFindsFileTarget)]
+        [DeploymentItem(FS.FileExists.Path, FS.FileExists.Target)]
         public void FileSystem_FileExists_Finds_File()
         {
             IFileSystem fileSystem = new FileSystem();
-            var result = fileSystem.FileExists(FileSystemFileExistsFildsFileTestPath);
+            var result = fileSystem.FileExists(FS.FileExists.TargetPath);
             Assert.IsTrue(result);
         }
 
