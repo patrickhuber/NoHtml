@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CachedDocumentModelFactory.cs" />
     <Compile Include="CompositionDependencyResolver.cs" />
     <Compile Include="DependencyResolver.cs" />
     <Compile Include="Document.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="FileSystemDocumentEnumerable.cs" />
     <Compile Include="FileSystem.cs" />
     <Compile Include="IDependencyResolver.cs" />
+    <Compile Include="IDocumentModelFactory.cs" />
     <Compile Include="IFileSystem.cs" />
     <Compile Include="ITextTransform.cs" />
     <Compile Include="MarkdownTextTransform.cs" />

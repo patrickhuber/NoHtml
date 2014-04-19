@@ -32,6 +32,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,6 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryableDocumentModelBinder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NoHtml.Core\NoHtml.Core.csproj">
+      <Project>{e6e44282-2936-4dab-8c71-3231b0e8c940}</Project>
+      <Name>NoHtml.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NoHtml.Web\NoHtml.Web.csproj">
+      <Project>{902bc494-a886-4b43-91da-27967e822414}</Project>
+      <Name>NoHtml.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
