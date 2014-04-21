@@ -64,7 +64,7 @@ namespace NoHtml.Web.Tests.Integration
         #endregion
 
         [TestMethod]
-        public void MarkdownHttpHandler_Renders_H1()
+        public void Test_MarkdownHttpHandler_Renders_H1()
         {
             var responseStream = new MemoryStream();
             

@@ -36,7 +36,7 @@ namespace NoHtml.Web.Tests.Integration
 
         [TestMethod]
         [DeploymentItem(FS.OpenRead.Path, FS.OpenRead.Target)]
-        public void FileSystem_OpenRead_Reads_File()
+        public void Test_FileSystem_OpenRead_Reads_File()
         {
             IFileSystem fileSystem = new FileSystem();
             using (var stream = fileSystem.OpenRead(FS.OpenRead.TargetPath))
@@ -52,7 +52,7 @@ namespace NoHtml.Web.Tests.Integration
 
         [TestMethod]
         [DeploymentItem(FS.FileExists.Path, FS.FileExists.Target)]
-        public void FileSystem_FileExists_Finds_File()
+        public void Test_FileSystem_FileExists_Finds_File()
         {
             IFileSystem fileSystem = new FileSystem();
             var result = fileSystem.FileExists(FS.FileExists.TargetPath);
@@ -69,7 +69,7 @@ namespace NoHtml.Web.Tests.Integration
 
         [TestMethod]
         [DeploymentItem(NoOpFilePath, FileSystemDirectoryExistsFindsDirectoryTarget)]
-        public void FileSystem_DirectoryExists_Finds_Directory()
+        public void Test_FileSystem_DirectoryExists_Finds_Directory()
         {
             IFileSystem fileSystem = new FileSystem();
             var result = fileSystem.DirectoryExists(FileSystemDirectoryExistsFindsDirectoryTarget);
